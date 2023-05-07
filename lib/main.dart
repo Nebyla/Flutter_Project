@@ -13,9 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: AppTheme.darkTheme,
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -57,7 +55,10 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             Image.asset(AppAsset.profileImage),
-            const Icon(AppIcon.heart, color: LightThemeColor.accent,)
+             Icon(
+              AppIcon.heart, 
+              color: Theme.of(context).indicatorColor,
+              )
           ],
         ),
       ),
