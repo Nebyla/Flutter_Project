@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:FlutterProject/ui_kit/_ui_kit.dart';
+import 'package:FlutterProject/ui/screens/food_list_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,10 +12,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Flutter Demo',
-      theme: AppTheme.darkTheme,
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      //theme: AppTheme.darkTheme,
+      home: FoodList(),
     );
   }
 }
