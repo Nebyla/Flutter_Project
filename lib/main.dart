@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:FlutterProject/ui_kit/_ui_kit.dart';
+import 'package:FlutterProject/ui/screens/food_list_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,12 +12,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+     return MaterialApp(
+      title: 'Japan Eat',
+      theme: AppTheme.darkTheme,
+      home: const FoodList(),
     );
   }
 }
@@ -39,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  @override
+@override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -49,15 +48,19 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'NotPush',
+            Text(
+              'You have pushed the button this many times:',
+              style: AppTextStyle.h1Style,
             ),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             Image.asset(AppAsset.profileImage),
-            const Icon(AppIcon.heart)
+            Icon(
+              AppIcon.heart,
+              color: Theme.of(context).indicatorColor,
+            )
           ],
         ),
       ),
