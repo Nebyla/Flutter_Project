@@ -4,6 +4,7 @@ import 'package:FlutterProject/ui_kit/_ui_kit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../ui_kit/_ui_kit.dart';
 import '../../data/app_data.dart';
+import 'package:FlutterProject/ui/extensions/app_extension.dart';
 
 class FoodList extends StatefulWidget {
   const FoodList({super.key});
@@ -134,7 +135,7 @@ class FoodListState extends State<FoodList> {
                     ),
                   ),
                   child: Text(
-                    category.type.name,
+                    category.type.name.toCapital,
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                 ),
