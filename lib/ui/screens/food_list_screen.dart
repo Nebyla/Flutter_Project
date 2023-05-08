@@ -156,9 +156,9 @@ class FoodListState extends State<FoodList> {
 
   void onCategoryTap(int selectedIndex) {
     //Меняем выбранную категорию
-    AppData.categories.asMap().forEach((index, category) {
-      category.isSelected = index == selectedIndex;
-    });
+    for (int i = 0; i < AppData.categories.length; i++) {
+      AppData.categories[i].isSelected = i == selectedIndex;
+    }
     setState(() {});
   }
 }
