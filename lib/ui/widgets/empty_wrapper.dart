@@ -4,13 +4,12 @@ import '../../ui_kit/app_assets.dart';
 enum EmptyWrapperType { cart, favorite }
 
 class EmptyWrapper extends StatelessWidget {
-  const EmptyWrapper({super.key,
-    this.type = EmptyWrapperType.cart,
-    required this.title,
-    required this.isEmpty,
-    required this.child
-  });
-
+  const EmptyWrapper(
+      {super.key,
+      this.type = EmptyWrapperType.cart,
+      required this.title,
+      required this.isEmpty,
+      required this.child});
 
   final EmptyWrapperType type;
   final String title;
