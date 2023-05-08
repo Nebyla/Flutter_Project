@@ -268,4 +268,17 @@ static List<Food> cartItems = [
     890,
   ),
 ];
+
+static Food food = Food(
+  AppAsset.sushi12,
+  "Sushi12",
+  20.0,
+  1,
+  false,
+  dummyText,
+  5.0,
+  FoodType.tempura,
+  560,
+);
+
 }
