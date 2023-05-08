@@ -4,6 +4,7 @@ import 'package:FlutterProject/ui/screens/food_list_screen.dart';
 import 'package:FlutterProject/ui/screens/cart_screen.dart';
 import 'package:FlutterProject/ui/screens/favorite_screen.dart';
 import 'package:FlutterProject/ui/screens/profile_screen.dart';
+import 'package:FlutterProject/ui/screens/food_detail_screen.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
      return MaterialApp(
       title: 'Japan Eat',
       theme: AppTheme.lightTheme,
-      home: const ProfileScreen(),
+      home: const FoodDetail(),
     );
   }
 }
