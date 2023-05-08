@@ -14,6 +14,7 @@ class AppTheme {
           borderRadius: BorderRadius.all(Radius.circular(25)),
           borderSide: BorderSide(color: Colors.transparent),
         ),
+        
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(25)),
           borderSide: BorderSide(color: Colors.transparent),
@@ -30,6 +31,13 @@ class AppTheme {
       centerTitle: true,
       titleTextStyle: AppTextStyle.h2Style,
     ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(
+            LightThemeColor.accent,
+          ),
+        ),
+      ),
     textTheme: TextTheme(
       displayLarge: AppTextStyle.h1Style,
       displayMedium: AppTextStyle.h2Style,
@@ -56,6 +64,13 @@ class AppTheme {
       filled: true,
       contentPadding: EdgeInsets.all(20),
       fillColor: DarkThemeColor.primaryLight,
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all<Color>(
+          LightThemeColor.accent,
+        ),
+      ),
     ),
     scaffoldBackgroundColor: DarkThemeColor.primaryDark,
     appBarTheme: AppBarTheme(
