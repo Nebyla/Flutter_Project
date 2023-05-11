@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:FlutterProject/ui_kit/_ui_kit.dart';
 import 'package:FlutterProject/ui/screens/food_list_screen.dart';
-
+import 'package:FlutterProject/ui/screens/cart_screen.dart';
+import 'package:FlutterProject/ui/screens/favorite_screen.dart';
+import 'package:FlutterProject/ui/screens/profile_screen.dart';
+import 'package:FlutterProject/ui/screens/food_detail_screen.dart';
+import 'package:FlutterProject/ui/screens/home_screen.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -12,10 +16,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Flutter Demo',
-      //theme: AppTheme.darkTheme,
-      home: FoodList(),
+     return MaterialApp(
+      title: 'Japan Eat',
+      theme: AppTheme.lightTheme,
+      home: const HomeScreen(),
     );
   }
 }
@@ -38,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  @override
+@override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -49,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'NotPush',
+              'You have pushed the button this many times:',
               style: AppTextStyle.h1Style,
             ),
             Text(
@@ -57,10 +61,10 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             Image.asset(AppAsset.profileImage),
-             Icon(
-              AppIcon.heart, 
+            Icon(
+              AppIcon.heart,
               color: Theme.of(context).indicatorColor,
-              )
+            )
           ],
         ),
       ),
