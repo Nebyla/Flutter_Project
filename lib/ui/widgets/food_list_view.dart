@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:FlutterProject/ui_kit/app_color.dart';
 import 'package:FlutterProject/ui_kit/app_text_style.dart';
 import '../../data/models/food.dart';
+import '../screens/food_detail_screen.dart';
 
 class FoodListView extends StatelessWidget {
   const FoodListView({
@@ -24,9 +25,11 @@ this.isReversed = false
           itemBuilder: (_, index) {
             Food food = isReversed ? foods.reversed.toList()[index] : foods[index];
             return GestureDetector(
-                onTap: (){
-                  print('Клик на карточку');
-                },
+                onTap: () {
+                print('Клик на карточку');
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const FoodDetail()));
+              },
             child: Container(
               width: 160,
               decoration: BoxDecoration(

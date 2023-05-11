@@ -2,10 +2,10 @@ import 'package:badges/badges.dart';
 import 'package:flutter/material.dart' hide Badge;
 import 'package:FlutterProject/ui_kit/_ui_kit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../../ui_kit/_ui_kit.dart';
 import '../../data/app_data.dart';
 import 'package:FlutterProject/ui/extensions/app_extension.dart';
 import 'package:FlutterProject/ui/widgets/food_list_view.dart';
+
 
 
 class FoodList extends StatefulWidget {

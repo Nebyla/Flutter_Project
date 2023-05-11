@@ -29,7 +29,7 @@ class FoodDetailState extends State<FoodDetail> {
   PreferredSizeWidget _appBar(BuildContext context) {
     return AppBar(
       leading: IconButton(
-        onPressed: () {},
+        onPressed: () => Navigator.of(context).pop(),
         icon: const Icon(Icons.arrow_back),
       ),
       title: Text(
