@@ -76,12 +76,8 @@ class CartScreenState extends State<CartScreen> {
               Column(
                 children: [
                   CounterButton(
-                    onIncrementTap: () {
-                      print('Нажали на увеличение количества');
-                    },
-                    onDecrementTap: () {
-                      print('Нажали на уменьшение количества');
-                    },
+                    onIncrementTap: () => onIncrementTap(cartIds[index]),
+                    onDecrementTap: () => onDecrementTap(cartIds[index]),
                     size: const Size(24, 24),
                     padding: 0,
                     label: Text(
@@ -106,6 +102,16 @@ class CartScreenState extends State<CartScreen> {
     );
   }
   void update() {
+    setState(() {});
+  }
+  void onIncrementTap(int id) async {
+    await FoodState().onIncrementTap(id);
+    setState(() {});
+  }
+
+
+  void onDecrementTap(int id) async {
+    await FoodState().onDecrementTap(id);
     setState(() {});
   }
 Widget _bottomAppBar() {
