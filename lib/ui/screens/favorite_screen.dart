@@ -16,23 +16,24 @@ class FavoriteScreen extends StatefulWidget {
 class FavoriteScreenState extends State<FavoriteScreen> {
   List<int> get favoriteIds => FoodState().favoriteIds;
   var favoriteFood = AppData.favoriteItems;
+
   void update() {
-      setState(() {});
-    }
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    appBar: _appBar(context),
-    body: EmptyWrapper(
+      appBar: _appBar(context),
+      body: EmptyWrapper(
       type: EmptyWrapperType.favorite,
       title: 'Empty favorite',
-      isEmpty: favoriteIds.isEmpty,
+      isEmpty: favoriteFood.isEmpty,
       child: _favoriteListView(),
-    ),
-  );
+      ),
+    );
   }
-
+  
   PreferredSizeWidget _appBar(BuildContext context) {
     return AppBar(
       title: Text(
@@ -45,9 +46,9 @@ class FavoriteScreenState extends State<FavoriteScreen> {
   Widget _favoriteListView() {
     return ListView.separated(
       padding: const EdgeInsets.all(30),
-      itemCount: favoriteFood.length,
+      itemCount: favoriteIds.length,
       itemBuilder: (_, index) {
-        Food food = favoriteFood[index];
+        Food food = FoodState().foodById(favoriteIds[index]);
         return Card(
           color: Theme.of(context).brightness == Brightness.light
               ? Colors.white
