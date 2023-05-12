@@ -2,10 +2,13 @@ import 'package:badges/badges.dart';
 import 'package:flutter/material.dart' hide Badge;
 import 'package:FlutterProject/ui_kit/_ui_kit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../../ui_kit/_ui_kit.dart';
 import '../../data/app_data.dart';
 import 'package:FlutterProject/ui/extensions/app_extension.dart';
 import 'package:FlutterProject/ui/widgets/food_list_view.dart';
+import '../../data/models/food_category.dart';
+import '../../states/food_state.dart';
+import '../extensions/app_extension.dart';
+import '../widgets/food_list_view.dart';
 
 
 class FoodList extends StatefulWidget {
@@ -16,7 +19,9 @@ class FoodList extends StatefulWidget {
 }
 
 class FoodListState extends State<FoodList> {
-  var categories = AppData.categories;
+  List<FoodCategory> get categories => FoodState().categories;
+  List<int> get foodIdsByCategory => FoodState().foodIdsByCategory;
+  List<int> get foodIds => FoodState().foodIds;
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -41,7 +46,7 @@ class FoodListState extends State<FoodList> {
                 style: Theme.of(context).textTheme.displaySmall,
               ),
               _categories(),
-               FoodListView(foods: AppData.foodItems),
+              FoodListView(foodIds: foodIdsByCategory),
               Padding(
                 padding: const EdgeInsets.only(top: 25, bottom: 5),
                 child: Row(
@@ -64,7 +69,7 @@ class FoodListState extends State<FoodList> {
                   ],
                 ),
               ),
-               FoodListView(foods: AppData.foodItems,isReversed: true),
+              FoodListView(foodIds: foodIds, isReversed: true),
 
             ],
           ),
@@ -156,8 +161,8 @@ class FoodListState extends State<FoodList> {
 
   void onCategoryTap(int selectedIndex) {
     //Меняем выбранную категорию
-    for (int i = 0; i < AppData.categories.length; i++) {
-      AppData.categories[i].isSelected = i == selectedIndex;
+    for (int index = 0; index < AppData.categories.length; index++) {
+      AppData.categories[index].isSelected = index == selectedIndex;
     }
     setState(() {});
   }

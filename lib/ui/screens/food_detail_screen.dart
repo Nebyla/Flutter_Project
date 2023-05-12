@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-
+import '../widgets/food_list_view.dart';
 import '../../data/app_data.dart';
 import '../../ui_kit/app_color.dart';
 import '../../ui_kit/app_icon.dart';
 import '../widgets/counter_button.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../../states/food_state.dart';
+import '../../data/models/food.dart';
 
 class FoodDetail extends StatefulWidget {
   const FoodDetail({super.key});
@@ -15,7 +17,8 @@ class FoodDetail extends StatefulWidget {
 }
 
 class FoodDetailState extends State<FoodDetail> {
-  final food = AppData.food;
+  int get foodId => FoodState().selectedFoodId;
+  Food get food => FoodState().foodById(foodId);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +32,7 @@ class FoodDetailState extends State<FoodDetail> {
   PreferredSizeWidget _appBar(BuildContext context) {
     return AppBar(
       leading: IconButton(
-        onPressed: () {},
+        onPressed: () => Navigator.of(context).pop(),
         icon: const Icon(Icons.arrow_back),
       ),
       title: Text(
