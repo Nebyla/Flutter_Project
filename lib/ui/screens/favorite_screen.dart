@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../../states/food_state.dart';
 import '../../data/app_data.dart';
 import '../../data/models/food.dart';
 import '../../ui_kit/app_color.dart';
@@ -14,13 +14,19 @@ class FavoriteScreen extends StatefulWidget {
 }
 
 class FavoriteScreenState extends State<FavoriteScreen> {
+  List<int> get favoriteIds => FoodState().favoriteIds;
   var favoriteFood = AppData.favoriteItems;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appBar(context),
-      body: _favoriteListView(),
-    );
+    appBar: _appBar(context),
+    body: EmptyWrapper(
+      type: EmptyWrapperType.favorite,
+      title: 'Empty favorite',
+      isEmpty: favoriteIds.isEmpty,
+      child: _favoriteListView(),
+    ),
+  );
   }
 
   PreferredSizeWidget _appBar(BuildContext context) {
