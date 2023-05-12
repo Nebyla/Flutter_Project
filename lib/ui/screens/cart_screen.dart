@@ -15,7 +15,8 @@ class CartScreen extends StatefulWidget {
 
 class CartScreenState extends State<CartScreen> {
   List<int> get cartIds => FoodState().cartIds;
-  var cartFood = AppData.cartItems;
+  final cartFood = AppData.cartItems;
+  double get subtotal => FoodState().calculateSubtotalPrice();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -131,15 +132,14 @@ Widget _bottomAppBar() {
  MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Subtotal",
-                              style:
- Theme.of(context).textTheme.headlineSmall,
-                            ),
-                            Text(
-                              "\$111",
-                              style:
- 						Theme.of(context).textTheme.displayMedium,
-                            ),
+                          "Subtotal",
+                          style: Theme.of(context).textTheme.headlineSmall,
+                        ),
+                        Text(
+                          "\$${subtotal.toString()}",
+                          style: Theme.of(context).textTheme.displayMedium,
+                        ),
+
                           ],
                         ),
                       ),
@@ -148,7 +148,7 @@ Widget _bottomAppBar() {
                         padding: const
     EdgeInsets.symmetric(horizontal: 20),
                         child: Row(
-                          mainAxisAlignment: 									MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment:MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
                               "Taxes",
@@ -177,13 +177,13 @@ MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
                               "Total",
-                              style:
- Theme.of(context).textTheme.displayMedium,
+                              style: Theme.of(context).textTheme.displayMedium,
                             ),
                             Text(
-                              "\$120.0",
-                              style:
- 	AppTextStyle.h2Style.copyWith(color: LightThemeColor.accent,),
+                              "\$${(subtotal + 5.0).toString()}",
+                              style: AppTextStyle.h2Style.copyWith(
+                                color: LightThemeColor.accent,
+                              ),
                             ),
                           ],
                         ),

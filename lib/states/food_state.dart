@@ -31,6 +31,15 @@ class FoodState {
   return price.toString();
 }
 
+double calculateSubtotalPrice() {
+  double subtotal = 0;
+  for (var id in cartIds) {
+    final food = foodById(id);
+    subtotal += food.quantity * food.price;
+  }
+  return subtotal;
+}
+
 
   Future<void> onAddToCartTap(int id, int amount) async {
   if (!cartIds.contains(id)) cartIds.add(id);
