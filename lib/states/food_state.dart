@@ -51,6 +51,11 @@ Future<void> onDecrementTap(int id) async {
     food.quantity = food.quantity - 1;
   }
 
+Future<void> onDeleteFoodFromCartById(int id) async {
+    cartIds.remove(id);
+    final food = foodById(id);
+    food.quantity = 1;
+  }
   Future<void> onAddToCartTap(int id, int amount) async {
   if (!cartIds.contains(id)) cartIds.add(id);
   foods[id]?.quantity = amount;
