@@ -40,6 +40,15 @@ double calculateSubtotalPrice() {
   return subtotal;
 }
 
+Future<void> onCleanCart() async {
+  for (var id in cartIds) {
+    final food = foodById(id);
+    food.quantity = 1;
+  }
+  cartIds = [];
+}
+
+
 Future<void> onIncrementTap(int id) async {
     final food = foodById(id);
     food.quantity = food.quantity + 1;

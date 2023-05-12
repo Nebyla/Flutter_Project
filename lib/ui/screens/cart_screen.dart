@@ -144,6 +144,10 @@ class CartScreenState extends State<CartScreen> {
     setState(() {});
   }
 
+  void onCleanCart() async {
+    await FoodState().onCleanCart();
+    setState(() {});
+  }
 
 
   void onDecrementTap(int id) async {
@@ -193,7 +197,7 @@ class CartScreenState extends State<CartScreen> {
                           padding: const
                           EdgeInsets.symmetric(horizontal: 20),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment:MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
                                 "Taxes",
@@ -241,7 +245,7 @@ class CartScreenState extends State<CartScreen> {
                             padding: const
                             EdgeInsets.symmetric(horizontal: 30),
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: onCleanCart,
                               child: const
                               Text("Checkout"),
                             ),
