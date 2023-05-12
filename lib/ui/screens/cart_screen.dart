@@ -103,7 +103,9 @@ class CartScreenState extends State<CartScreen> {
       ),
     );
   }
-
+  void update() {
+    setState(() {});
+  }
 Widget _bottomAppBar() {
   return ClipRRect(
     borderRadius: const BorderRadius.only(

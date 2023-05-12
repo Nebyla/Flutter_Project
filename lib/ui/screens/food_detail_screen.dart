@@ -31,6 +31,10 @@ class FoodDetailState extends State<FoodDetail> {
     _amount--;
     setState(() {});
   }
+  void onAddToCart() async {
+    await FoodState().onAddToCartTap(foodId, _amount);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +42,8 @@ class FoodDetailState extends State<FoodDetail> {
         body: Center(child: Image.asset(food.image, scale: 2)),
         floatingActionButton: _floatingActionButton(),
         bottomNavigationBar: _bottomAppBar(),
-        floatingActionButtonLocation: FloatingActionButtonLocation.endDocked);
+        floatingActionButtonLocation: FloatingActionButtonLocation.endDocked
+        );
   }
 
   PreferredSizeWidget _appBar(BuildContext context) {
@@ -162,7 +167,7 @@ class FoodDetailState extends State<FoodDetail> {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 30),
                               child: ElevatedButton(
-                                onPressed: () {},
+                                onPressed: onAddToCart,
                                 child: const Text("Add to cart"),
                               ),
                             ),

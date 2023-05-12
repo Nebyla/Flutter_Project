@@ -25,6 +25,15 @@ class FoodState {
   selectedFoodId = id;
   }
 
+  Future<void> onAddToCartTap(int id, int amount) async {
+  if (!cartIds.contains(id)) cartIds.add(id);
+  foods[id]?.quantity = amount;
+  }
+
+Future<void> onTabTap(int index) async {
+    if (_currentIndex == index) return;
+    _currentIndex = index;
+  }
 
   Future<void> onCategoryTap(int selectedIndex) async {
     if (_selectedCategoryIndex == selectedIndex) return;
