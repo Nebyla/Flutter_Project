@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../widgets/food_list_view.dart';
 import '../../data/app_data.dart';
 import '../../ui_kit/app_color.dart';
 import '../../ui_kit/app_icon.dart';
@@ -33,6 +32,11 @@ class FoodDetailState extends State<FoodDetail> {
   }
   void onAddToCart() async {
     await FoodState().onAddToCartTap(foodId, _amount);
+  }
+
+  void onAddDeleteFavorite() async {
+    await FoodState().onAddDeleteFavoriteTap(foodId);
+    setState(() {});
   }
 
   @override
@@ -69,7 +73,7 @@ class FoodDetailState extends State<FoodDetail> {
     return FloatingActionButton(
       elevation: 0.0,
       backgroundColor: LightThemeColor.accent,
-      onPressed: () {},
+      onPressed: onAddDeleteFavorite,
       child: food.isFavorite
           ? const Icon(AppIcon.heart)
           : const Icon(AppIcon.outlinedHeart),

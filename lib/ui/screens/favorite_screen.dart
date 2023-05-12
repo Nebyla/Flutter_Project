@@ -16,6 +16,10 @@ class FavoriteScreen extends StatefulWidget {
 class FavoriteScreenState extends State<FavoriteScreen> {
   List<int> get favoriteIds => FoodState().favoriteIds;
   var favoriteFood = AppData.favoriteItems;
+  void update() {
+      setState(() {});
+    }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
